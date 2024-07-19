@@ -22,7 +22,8 @@
 </head>
 <body class="bg-cyan-900">
  
-    <div>
+    <div class="flex">
+      <!--sidebar-->
       <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
         <ion-icon name="menu-outline" onclick="apriCiccio()"></ion-icon>
       </div>
@@ -45,54 +46,14 @@
     </div>
 
   </div>
-     <!-- qui fai le card oh -->
-  <div class="min-h-screen flex flex-col items-center justify-center space-y-4">
-         
-<div class="w-full max-w-sm p-4 bg-white rounded-lg shadow-md" id="card">
-    <!--<div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-      <div class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
-        <img
-          src="https://knigagolik.it/wp-content/uploads/2021/04/libro-in-russo-harry-potter-e-la-pietra-filosofale-cover.jpg"
-          alt="image"
-          class="h-full w-full object-cover"
-        />
-      </div>
-      <div class="p-6">
-        <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-          Fantasy
-        </h6>
-        <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-          Harry Potter e la pietra filosofale
-        </h4>
-        <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-            "Harry Potter e la pietra filosofale" segue le avventure del giovane orfano Harry Potter che scopre di essere un mago e inizia a frequentare la Scuola di Magia e Stregoneria di Hogwarts, dove affronta misteri e pericoli legati a una leggendaria pietra dai poteri straordinari.
-        </p>
-        <a class="inline-block" href="DettaglioCategoria.html">
-          <button
-            class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Vai al Dettaglio
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="h-4 w-4"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              ></path>
-            </svg>
-          </button>
-        </a>
-      </div>-->
+    <!--Main-->
+    <div class="flex-1 p-4">
+        <div class="flex items-center justify-center min-h-screen mt-32">
+          <!-- qui fai le card oh -->
+    <div class="flex flex-col items-center gap-10" id="card">
+
     </div>
-  </div>
+        </div>
 
 
 
@@ -145,7 +106,5 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="Libri.js" defer></script>
-</body>
-</html>
 </body>
 </html>

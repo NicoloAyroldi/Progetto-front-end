@@ -1,10 +1,11 @@
 class BookService {
     basePath = "http://localhost:5123/api/Book";
-
+    categoryPath = "http://localhost:5123/api/Category"; // Assumendo che l'API delle categorie sia qui
+  
     async getLibri() { 
         try {
             const response = await fetch(this.basePath);
-
+  
             if (!response.ok) {
                 throw new Error('Errore nella richiesta');
             } 
@@ -21,41 +22,62 @@ class BookService {
                 throw new Error('Id non valido');
             }
             const response = await fetch(`${this.basePath}/${id}`);
-
+  
             if (!response.ok) {
                 throw new Error('Errore nella richiesta');
             }   
-
+  
             return await response.json();
         } catch (e) {
             return null;
         }
     }
-}
-
-async function loadAllBooks() {
+  
+    async getCategorie() {
+        try {
+            const response = await fetch(this.categoryPath);
+  
+            if (!response.ok) {
+                throw new Error('Errore nella richiesta');
+            } 
+            return await response.json();
+        } catch (e) {
+            return [];
+        }
+    }
+  }
+  
+  
+  async function loadAllBooks() {
     const bookService = new BookService();
-    const books = await bookService.getLibri();
-    console.log(books);
-
-    books.map(book => loadSingleBook(book));
-}   
-
-
-
-/*card.array.forEach((value) => {
-
-    loadSingleBook(value);
-    
-});*/
-
-function loadSingleBook(book) {
-    console.log('cccccc');
+    const [books, categories] = await Promise.all([
+        bookService.getLibri(),
+        bookService.getCategorie()
+    ]);
+  
+    const categoryMap = categories.reduce((map, category) => {
+        map[category.id] = category.nome; // Assumendo che il nome del campo sia 'name'
+        return map;
+    }, {});
+  
+    books.forEach(book => loadSingleBook(book, categoryMap));
+  }
+  
+  
+  
+  
+  /*card.array.forEach((value) => {
+  
+      loadSingleBook(value);
+      
+  });*/
+  
+  function loadSingleBook(book, categoryMap) {
     const cardContainer = document.getElementById('card');
     const card = document.createElement('div');
-
+  
     card.innerHTML = 
-
+  
     `<div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
       <div class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
         <img
@@ -66,7 +88,7 @@ function loadSingleBook(book) {
       </div>
       <div class="p-6">
         <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-          ${book.categoria}
+          ${categoryMap[book.categoryId] || 'Categoria sconosciuta'}
         </h6>
         <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
           ${book.titolo}
@@ -98,10 +120,10 @@ function loadSingleBook(book) {
           </button>
         </a>
       </div>`
+  
+    cardContainer.appendChild(card);
+  }
+  
 
-      cardContainer.appendChild(card);
-}
-
-loadAllBooks();
-
+  loadAllBooks();
 
