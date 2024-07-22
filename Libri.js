@@ -1,84 +1,95 @@
 class BookService {
-    basePath = "http://localhost:5123/api/Book";
-    categoryPath = "http://localhost:5123/api/Category"; // Assumendo che l'API delle categorie sia qui
-  
-    async getLibri() { 
-        try {
-            const response = await fetch(this.basePath);
-  
-            if (!response.ok) {
-                throw new Error('Errore nella richiesta');
-            } 
-            return await response.json();
-            
-        } catch (e) {
-            return [];
-        }
-    }
+  basePath = "http://localhost:5123/api/Book";
+  categoryPath = "http://localhost:5123/api/Category";
+  authorPath = "http://localhost:5123/api/Author";
 
-    async getLibro(id) {
-        try {
-            if (typeof id !== "number") {
-                throw new Error('Id non valido');
-            }
-            const response = await fetch(`${this.basePath}/${id}`);
-  
-            if (!response.ok) {
-                throw new Error('Errore nella richiesta');
-            }   
-  
-            return await response.json();
-        } catch (e) {
-            return null;
-        }
-    }
-  
-    async getCategorie() {
-        try {
-            const response = await fetch(this.categoryPath);
-  
-            if (!response.ok) {
-                throw new Error('Errore nella richiesta');
-            } 
-            return await response.json();
-        } catch (e) {
-            return [];
-        }
+  async getLibri() {
+    try {
+      const response = await fetch(this.basePath);
+      if (!response.ok) {
+        throw new Error('Errore nella richiesta');
+      }
+      return await response.json();
+    } catch (e) {
+      console.error(e);
+      return [];
     }
   }
+
+  async getLibro(id) {
+    try {
+      if (typeof id !== "number") {
+        throw new Error('Id non valido');
+      }
+      const response = await fetch(`${this.basePath}/${id}`);
+      if (!response.ok) {
+        throw new Error('Errore nella richiesta');
+      }
+      return await response.json();
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
+  }
+
+  async getCategorie() {
+    try {
+      const response = await fetch(this.categoryPath);
+      if (!response.ok) {
+        throw new Error('Errore nella richiesta');
+      }
+      return await response.json();
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  }
+
+  async getAutori() {
+    try {
+      const response = await fetch(this.authorPath);
+      if (!response.ok) {
+        throw new Error('Errore nella richiesta');
+      }
+      return await response.json();
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  }
+}
   
-  
-  async function loadAllBooks() {
-    const bookService = new BookService();
-    const [books, categories] = await Promise.all([
-        bookService.getLibri(),
-        bookService.getCategorie()
-    ]);
-  
+async function loadAllBooks() {
+  const bookService = new BookService();
+  const [books, categories, authors] = await Promise.all([
+    bookService.getLibri(),
+    bookService.getCategorie(),
+    bookService.getAutori()
+  ]);
+
+  if (books.length > 0) {
     const categoryMap = categories.reduce((map, category) => {
-        map[category.id] = category.nome; // Assumendo che il nome del campo sia 'name'
-        return map;
+      map[category.id] = category.nome;
+      return map;
     }, {});
-  
-    books.forEach(book => loadSingleBook(book, categoryMap));
+
+    const authorMap = authors.reduce((map, author) => {
+      map[author.id] = `${author.nome} ${author.cognome}`;
+      return map;
+    }, {});
+
+    books.forEach(book => loadSingleBook(book, categoryMap, authorMap));
+  } else {
+    document.getElementById('card').innerText = 'Nessun libro trovato';
   }
-  
-  
-  
-  
-  /*card.array.forEach((value) => {
-  
-      loadSingleBook(value);
-      
-  });*/
-  
-  function loadSingleBook(book, categoryMap) {
-    const cardContainer = document.getElementById('card');
-    const card = document.createElement('div');
-  
-    card.innerHTML = 
-  
-    `<div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+}
+
+function loadSingleBook(book, categoryMap, authorMap) {
+  const cardContainer = document.getElementById('card');
+  const card = document.createElement('div');
+
+  card.innerHTML = `
+    <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
       <div class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
         <img
           src="https://knigagolik.it/wp-content/uploads/2021/04/libro-in-russo-harry-potter-e-la-pietra-filosofale-cover.jpg"
@@ -94,9 +105,9 @@ class BookService {
           ${book.titolo}
         </h4>
         <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-          ${book.descrizione}
+          ${authorMap[book.authorId] || 'Autore sconosciuto'}
         </p>
-        <a class="inline-block" href="DettaglioCategoria.html">
+        <a class="inline-block" href="DettaglioLibro.html?id=${book.id}">
           <button
             class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
@@ -119,11 +130,12 @@ class BookService {
             </svg>
           </button>
         </a>
-      </div>`
-  
-    cardContainer.appendChild(card);
-  }
-  
+      </div>
+    </div>
+  `;
 
-  loadAllBooks();
+  cardContainer.appendChild(card);
+}
+
+window.onload = loadAllBooks;
 

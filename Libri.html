@@ -22,13 +22,14 @@
 </head>
 <body class="bg-cyan-900">
  
-    <div>
+    <div class="flex">
+      <!--sidebar-->
       <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
         <ion-icon name="menu-outline" onclick="apriCiccio()"></ion-icon>
       </div>
       <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openNav">
         <ul>
-          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="Categoria.html">Libri</a></li>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="Libri.html">Libri</a></li>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="MenuCategorie.html">Categorie</a></li>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="DettaglioAutori.html">Autori</a></li>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="#">Case Editrici</a></li>
@@ -40,53 +41,32 @@
 
     </div>
     
-    <div class="fixed top-[10px] left-[700px] text-[40px] cursor-pointer">
-      <a href="Homepage.html">Logo</a>
+    <div class="fixed top-[10px] left-[700px] text-[40px] cursor-pointer w-20 h-20">
+      <a href="Homepage.html"><img src="https://images.vexels.com/content/229082/preview/book-circles-logo-82dff4.png" alt="Logo"></a>
     </div>
 
   </div>
-    
-        <div>
+    <!--Main-->
+    <div class="flex-1 p-4">
+        <div class="flex items-center justify-center min-h-screen mt-32">
           <!-- qui fai le card oh -->
-<div class="flex min-h-screen items-center justify-center">
-    <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-      <div class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
-        <img
-          src="https://knigagolik.it/wp-content/uploads/2021/04/libro-in-russo-harry-potter-e-la-pietra-filosofale-cover.jpg"
-          alt="image"
-          class="h-full w-full object-cover"
-        />
-      </div>
-      <div class="p-6">
-        <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-          ${categoryMap[book.categoryId] || 'Categoria sconosciuta'}
-        </h6>
-        <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-          ${book.titolo}
-        </h4>
-        <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-            "Harry Potter e la pietra filosofale" segue le avventure del giovane orfano Harry Potter che scopre di essere un mago e inizia a frequentare la Scuola di Magia e Stregoneria di Hogwarts, dove affronta misteri e pericoli legati a una leggendaria pietra dai poteri straordinari.
-        </p>
-        <a class="inline-block" href="DettaglioCategoria.html">
-          <button
-            class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            Aggiungi
+    <div class="flex flex-col items-center gap-10" id="card">
 
-          </button>
-
-          <button
-          class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button"
-        >
-          Elimina
-           
-          </button>
-
-        </a>
-      </div>
     </div>
+        </div>
+
+        <div class="flex">
+          <!--altra sidebar-->
+          <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
+            <ion-icon name="person-outline" onclick="apriFranco()"></ion-icon>
+          </div>
+          <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openIcon">
+            
+          <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
+              <ion-icon name="person-outline"onclick="chiudiFranco()"></ion-icon>
+            </div>
+          </div>
+        </div>
 
 
 
@@ -112,7 +92,7 @@
     <script> 
       let openNav = document.getElementById("openNav");
     
-    
+      
     
       function apriCiccio(){
         if(openNav.classList.contains("w-0")){
@@ -135,10 +115,36 @@
           openNav.classList.add("w-0");
         }
       }
+
+      let openIcon = document.getElementById("openIcon");
+    
+      
+    
+      function apriFranco(){
+        if(openIcon.classList.contains("w-0")){
+          openIcon.classList.remove("w-0");
+          openIcon.classList.add("w-[24%]");
+        }
+        else{
+          openIcon.classList.remove("w-[24%]");
+          openIcon.classList.add("w-0");
+        }
+      }
+
+      function chiudiFranco(){
+        if(openIcon.classList.contains("w-0")){
+          openIcon.classList.remove("w-0");
+          openIcon.classList.add("w-[24%]");
+        }
+        else{
+          openIcon.classList.remove("w-[24%]");
+          openIcon.classList.add("w-0");
+        }
+      }
+
     </script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-</body>
-</html>
+    <script src="Libri.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+    @layer utilities {
+      .textShadow{
+        text-shadow: -3px 3px 0px #2332d0;
+      }
+    }
+  </style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+ 
+</head>
+<body class="bg-cyan-900">
+ 
+    <div class="flex">
+      <!--sidebar-->
+      <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
+        <ion-icon name="menu-outline" onclick="apriCiccio()"></ion-icon>
+      </div>
+      <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openNav">
+        <ul>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="Libri.html">Libri</a></li>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="MenuCategorie.html">Categorie</a></li>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="DettaglioAutori.html">Autori</a></li>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="#">Case Editrici</a></li>
+        </ul>
+        <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
+          <ion-icon name="menu-outline"onclick="chiudiCiccio()"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="fixed top-[10px] left-[700px] text-[40px] cursor-pointer w-20 h-20">
+      <a href="Homepage.html"><img src="https://images.vexels.com/content/229082/preview/book-circles-logo-82dff4.png" alt="Logo"></a>
+    </div>
+
+  </div>
+    <!--Main-->
+    <div class="flex-1 p-4">
+        <div class="flex items-center justify-center min-h-screen mt-32">
+            <section class="bg-slate-500">
+                <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+                    <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-blue-950">Add a new product</h2>
+                    <form action="#">
+                        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                            <div class="sm:col-span-2">
+                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titolo</label>
+                                <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required="">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Anno</label>
+                                <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required="">
+                            </div>
+                            <div>
+                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seleziona Categoria</label>
+                                <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected="">Select category</option>
+                                    <option value="TV">TV/Monitors</option>
+                                    <option value="PC">PC</option>
+                                    <option value="GA">Gaming/Console</option>
+                                    <option value="PH">Phones</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seleziona Autore</label>
+                                <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected="">Select category</option>
+                                    <option value="TV">TV/Monitors</option>
+                                    <option value="PC">PC</option>
+                                    <option value="GA">Gaming/Console</option>
+                                    <option value="PH">Phones</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seleziona Casa Editrice</label>
+                                <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected="">Select category</option>
+                                    <option value="TV">TV/Monitors</option>
+                                    <option value="PC">PC</option>
+                                    <option value="GA">Gaming/Console</option>
+                                    <option value="PH">Phones</option>
+                                </select>
+                            </div>
+ 
+                            <div class="sm:col-span-2">
+                                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                                <textarea id="description" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your description here"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                            Aggiungi Libro
+                        </button>
+                    </form>
+                </div>
+              </section>
+    <div class="flex flex-col items-center gap-10">
+
+    </div>
+        </div>
+
+        <div class="flex">
+          <!--altra sidebar-->
+          <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
+            <ion-icon name="person-outline" onclick="apriFranco()"></ion-icon>
+          </div>
+          <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openIcon">
+            
+          <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
+              <ion-icon name="person-outline"onclick="chiudiFranco()"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script> 
+      let openNav = document.getElementById("openNav");
+    
+      
+    
+      function apriCiccio(){
+        if(openNav.classList.contains("w-0")){
+          openNav.classList.remove("w-0");
+          openNav.classList.add("w-[24%]");
+        }
+        else{
+          openNav.classList.remove("w-[24%]");
+          openNav.classList.add("w-0");
+        }
+      }
+
+      function chiudiCiccio(){
+        if(openNav.classList.contains("w-0")){
+          openNav.classList.remove("w-0");
+          openNav.classList.add("w-[24%]");
+        }
+        else{
+          openNav.classList.remove("w-[24%]");
+          openNav.classList.add("w-0");
+        }
+      }
+
+      let openIcon = document.getElementById("openIcon");
+    
+      
+    
+      function apriFranco(){
+        if(openIcon.classList.contains("w-0")){
+          openIcon.classList.remove("w-0");
+          openIcon.classList.add("w-[24%]");
+        }
+        else{
+          openIcon.classList.remove("w-[24%]");
+          openIcon.classList.add("w-0");
+        }
+      }
+
+      function chiudiFranco(){
+        if(openIcon.classList.contains("w-0")){
+          openIcon.classList.remove("w-0");
+          openIcon.classList.add("w-[24%]");
+        }
+        else{
+          openIcon.classList.remove("w-[24%]");
+          openIcon.classList.add("w-0");
+        }
+      }
+
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="Libri.js" defer></script>
+</body>
+</html>
