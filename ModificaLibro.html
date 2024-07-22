@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+    @layer utilities {
+      .textShadow{
+        text-shadow: -3px 3px 0px #2332d0;
+      }
+    }
+  </style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+ 
+</head>
+<body class="bg-cyan-900">
+ 
+    <div class="flex">
+      <!--sidebar-->
+      <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
+        <ion-icon name="menu-outline" onclick="apriCiccio()"></ion-icon>
+      </div>
+      <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openNav">
+        <ul>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="Libri.html">Libri</a></li>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="MenuCategorie.html">Categorie</a></li>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="DettaglioAutori.html">Autori</a></li>
+          <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="#">Case Editrici</a></li>
+        </ul>
+        <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
+          <ion-icon name="menu-outline"onclick="chiudiCiccio()"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="fixed top-[10px] left-[700px] text-[40px] cursor-pointer w-20 h-20">
+      <a href="Homepage.html"><img src="https://images.vexels.com/content/229082/preview/book-circles-logo-82dff4.png" alt="Logo"></a>
+    </div>
+
+  </div>
+    <!--Main-->
+    <div class="flex-1 p-4" id="form-aggiungi">
+        
+    <div class="flex flex-col items-center gap-10">
+
+    </div>
+        </div>
+
+        <div class="flex">
+          <!--altra sidebar-->
+          <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
+            <ion-icon name="person-outline" onclick="apriFranco()"></ion-icon>
+          </div>
+          <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openIcon">
+            
+          <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
+              <ion-icon name="person-outline"onclick="chiudiFranco()"></ion-icon>
+            </div>
+          </div>
+        </div>
+    <script> 
+      let openNav = document.getElementById("openNav");
+    
+      
+    
+      function apriCiccio(){
+        if(openNav.classList.contains("w-0")){
+          openNav.classList.remove("w-0");
+          openNav.classList.add("w-[24%]");
+        }
+        else{
+          openNav.classList.remove("w-[24%]");
+          openNav.classList.add("w-0");
+        }
+      }
+
+      function chiudiCiccio(){
+        if(openNav.classList.contains("w-0")){
+          openNav.classList.remove("w-0");
+          openNav.classList.add("w-[24%]");
+        }
+        else{
+          openNav.classList.remove("w-[24%]");
+          openNav.classList.add("w-0");
+        }
+      }
+
+      let openIcon = document.getElementById("openIcon");
+    
+      
+    
+      function apriFranco(){
+        if(openIcon.classList.contains("w-0")){
+          openIcon.classList.remove("w-0");
+          openIcon.classList.add("w-[24%]");
+        }
+        else{
+          openIcon.classList.remove("w-[24%]");
+          openIcon.classList.add("w-0");
+        }
+      }
+
+      function chiudiFranco(){
+        if(openIcon.classList.contains("w-0")){
+          openIcon.classList.remove("w-0");
+          openIcon.classList.add("w-[24%]");
+        }
+        else{
+          openIcon.classList.remove("w-[24%]");
+          openIcon.classList.add("w-0");
+        }
+      }
+
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="ModificaLibro.js"></script>
+</body>
+</html>
