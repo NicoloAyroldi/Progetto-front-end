@@ -20,7 +20,7 @@
       <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
         <ion-icon name="menu-outline" onclick="apriCiccio()"></ion-icon>
       </div>
-      <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openNav">
+      <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[30px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openNav">
         <ul>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="Libri.html">Libri</a></li>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="AggiungiLibro.html">Aggiungi Libro</a></li>
@@ -37,7 +37,7 @@
 
       
     
-        <div class="fixed top-[10px] left-[700px] text-[40px] cursor-pointer w-20 h-20">
+        <div class="fixed top-[10px] left-[700px] text-[40px] cursor-pointer w-20 h-20 pb-32">
           <a href="Homepage.html"><img src="https://images.vexels.com/content/229082/preview/book-circles-logo-82dff4.png" alt="Logo"></a>
         </div>
 
@@ -50,7 +50,7 @@
         <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
           <ion-icon name="person-outline" onclick="apriFranco()"></ion-icon>
         </div>
-        <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openIcon">
+        <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[30px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openIcon">
           
         <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
             <ion-icon name="person-outline"onclick="chiudiFranco()"></ion-icon>
@@ -77,15 +77,15 @@
 
       <div class="flex-1 p-4">
 
-      <div class="max-w-4xl mx-auto mt-20 p-4 bg-white rounded-lg shadow-lg">
-        <h1 class="text-3xl font-bold mb-4 text-center text-cyan-900">Autori</h1>
-        <ul class="space-y-4 w-full max-w-2xl"id="authors-list">
+        <div class="max-w-3xl mx-auto mt-32 p-4 bg-white rounded-lg shadow-lg">
+          <h1 class="text-2xl font-bold mb-4 text-center text-cyan-900">Autori</h1>
+        <ul class="space-y-4 "id="authors-list">
           <!-- Gli autori saranno inseriti qui -->
         </ul>
         
       </div>
 
-      <div class="max-w-4xl mx-auto mt-20 p-4 bg-white rounded-lg shadow-lg">
+      <div class="max-w-3xl mx-auto mt-20 p-4 bg-white rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold mb-4 text-center text-cyan-900">Autori della Categoria Selezionata</h2>
         <ul id="books-list" class="space-y-4">
           <!-- I libri saranno inseriti qui -->
@@ -93,16 +93,33 @@
       </div>
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     <script> 
       let openNav = document.getElementById("openNav");
         
       function apriCiccio(){
         if(openNav.classList.contains("w-0")){
           openNav.classList.remove("w-0");
-          openNav.classList.add("w-[29%]");
+          openNav.classList.add("w-[24%]");
         }
         else{
-          openNav.classList.remove("w-[29%]");
+          openNav.classList.remove("w-[24%]");
           openNav.classList.add("w-0");
         }
       }
@@ -110,10 +127,10 @@
       function chiudiCiccio(){
         if(openNav.classList.contains("w-0")){
           openNav.classList.remove("w-0");
-          openNav.classList.add("w-[29%]");
+          openNav.classList.add("w-[24%]");
         }
         else{
-          openNav.classList.remove("w-[29%]");
+          openNav.classList.remove("w-[24%]");
           openNav.classList.add("w-0");
         }
       }

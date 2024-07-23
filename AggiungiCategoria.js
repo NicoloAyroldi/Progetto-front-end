@@ -30,18 +30,18 @@ async function loadSingleCategory() {
     const catService = new CategoryService();
 
     document.querySelector('.flex-1 .flex-col').innerHTML = `
-        <div class="flex items-center justify-center min-h-screen mt-32">
-            <section class="bg-slate-500">
-                <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                    <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-blue-950">Aggiungi un nuovo libro</h2>
+        <div class="relative flex justify-between items-center bg-white p-4 rounded-xl mt-36 max-w-4xl mx-auto shadow-lg">
+            <section class="bg-white">
+                <div class="py-10 px-4 m-8 max-w-4xl lg:py-4  mt-2 mb-2">
+                    <h2 class="mb-8 text-2xl font-bold text-center text-cyan-900">Aggiungi una nuova Categoria</h2>
                     <form id="CatForm">
-                        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                        <div class="grid gap-6 sm:grid-cols-2 sm:gap-6 -mx-8">
                             <div class="sm:col-span-2">
-                                <label for="nomecat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome Categoria</label>
-                                <input type="text" name="nomecat" id="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Inserisci nome della categoria" required>
+                                <label for="nomecat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-pink-500">Nome Categoria</label>
+                                <input type="text" name="nomecat" id="nome" class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-200 dark:placeholder-gray-400 dark:text-cyan-900 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Inserisci nome della categoria" required>
                             </div>
                         </div>
-                        <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                        <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-xs text-center bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 select-none gap-2 align-middle font-sans font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
                             Aggiungi Categoria
                         </button>
                     </form>

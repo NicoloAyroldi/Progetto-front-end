@@ -133,7 +133,7 @@ function showBooks(books, category, authors) {
                 const authorName = authorMap[book.authorId] || 'Autore non disponibile';
 
                 return `
-                    <li class="flex justify-between items-center bg-gray-100 p-4 rounded">
+                    <li class="flex justify-between items-center bg-gray-100 p-4 rounded mb-4">
                         <div>
                             <span class="font-bold">${book.titolo}</span>
                             <p>${book.descrizione}</p>
@@ -159,11 +159,27 @@ async function loadCategories() {
     }
 
     categoriesList.innerHTML = categories.map(category => `
-        <li class="flex justify-between items-center bg-gray-100 p-4 rounded">
+        <li class="relative flex justify-between items-center bg-gray-100 p-4 rounded">
             <span>${category.nome}</span>
             <div>
-                <button class="bg-red-500 text-white px-4 py-2 rounded mr-2 delete-category-btn" data-id="${category.id}">Elimina</button>
-                <button class="bg-green-500 text-white px-4 py-2 rounded show-books-btn" data-id="${category.id}">Libri</button>
+                <button class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none delete-category-btn" data-id="${category.id}">Elimina</button>
+                <button class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none show-books-btn" data-id="${category.id}">Libri
+                <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="h-4 w-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              ></path>
+            </svg>
+            </button>
             </div>
         </li>
     `).join('');

@@ -20,7 +20,7 @@
       <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
         <ion-icon name="menu-outline" onclick="apriCiccio()"></ion-icon>
       </div>
-      <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openNav">
+      <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[30px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openNav">
         <ul>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="Libri.html">Libri</a></li>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="AggiungiLibro.html">Aggiungi Libro</a></li>
@@ -94,10 +94,10 @@
         function apriCiccio(){
           if(openNav.classList.contains("w-0")){
             openNav.classList.remove("w-0");
-            openNav.classList.add("w-[29%]");
+            openNav.classList.add("w-[24%]");
           }
           else{
-            openNav.classList.remove("w-[29%]");
+            openNav.classList.remove("w-[24%]");
             openNav.classList.add("w-0");
           }
         }
@@ -105,10 +105,10 @@
         function chiudiCiccio(){
           if(openNav.classList.contains("w-0")){
             openNav.classList.remove("w-0");
-            openNav.classList.add("w-[29%]");
+            openNav.classList.add("w-[24%]");
           }
           else{
-            openNav.classList.remove("w-[29%]");
+            openNav.classList.remove("w-[24%]");
             openNav.classList.add("w-0");
           }
         }
