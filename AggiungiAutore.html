@@ -75,91 +75,73 @@
         </form>
       </div>
 
-      <div class="flex-1 p-4" id="form-aggiungi">
-        
-    <div class="flex flex-col items-center gap-10">
-
-    </div>
-        </div>
-
-        
+      <div class="flex-1 p-4" id="">
 
 
 
 
 
+<script> 
+    let openNav = document.getElementById("openNav");
+      
+    function apriCiccio(){
+      if(openNav.classList.contains("w-0")){
+        openNav.classList.remove("w-0");
+        openNav.classList.add("w-[29%]");
+      }
+      else{
+        openNav.classList.remove("w-[29%]");
+        openNav.classList.add("w-0");
+      }
+    }
+
+    function chiudiCiccio(){
+      if(openNav.classList.contains("w-0")){
+        openNav.classList.remove("w-0");
+        openNav.classList.add("w-[29%]");
+      }
+      else{
+        openNav.classList.remove("w-[29%]");
+        openNav.classList.add("w-0");
+      }
+    }
+
+    /*let openIcon = document.getElementById("openIcon");
+
+    function apriFranco(){
+      if(openIcon.classList.contains("w-0")){
+        openIcon.classList.remove("w-0");
+        openIcon.classList.add("w-[24%]");
+      }
+      else{
+        openIcon.classList.remove("w-[24%]");
+        openIcon.classList.add("w-0");
+      }
+    }
+
+    function chiudiFranco(){
+      if(openIcon.classList.contains("w-0")){
+        openIcon.classList.remove("w-0");
+        openIcon.classList.add("w-[24%]");
+      }
+      else{
+        openIcon.classList.remove("w-[24%]");
+        openIcon.classList.add("w-0");
+      }
+    }*/
 
 
 
+    function toggleSearch() {
+    let searchBar = document.getElementById("searchBar");
+    if (searchBar.classList.contains("hidden")) {
+      searchBar.classList.remove("hidden");
+      searchBar.classList.add("block");
+    } else {
+      searchBar.classList.remove("block");
+      searchBar.classList.add("hidden");
+    }
+  }
 
-
-
-
-
-        <script> 
-          let openNav = document.getElementById("openNav");
-            
-          function apriCiccio(){
-            if(openNav.classList.contains("w-0")){
-              openNav.classList.remove("w-0");
-              openNav.classList.add("w-[29%]");
-            }
-            else{
-              openNav.classList.remove("w-[29%]");
-              openNav.classList.add("w-0");
-            }
-          }
-    
-          function chiudiCiccio(){
-            if(openNav.classList.contains("w-0")){
-              openNav.classList.remove("w-0");
-              openNav.classList.add("w-[29%]");
-            }
-            else{
-              openNav.classList.remove("w-[29%]");
-              openNav.classList.add("w-0");
-            }
-          }
-    
-          /*let openIcon = document.getElementById("openIcon");
-    
-          function apriFranco(){
-            if(openIcon.classList.contains("w-0")){
-              openIcon.classList.remove("w-0");
-              openIcon.classList.add("w-[24%]");
-            }
-            else{
-              openIcon.classList.remove("w-[24%]");
-              openIcon.classList.add("w-0");
-            }
-          }
-    
-          function chiudiFranco(){
-            if(openIcon.classList.contains("w-0")){
-              openIcon.classList.remove("w-0");
-              openIcon.classList.add("w-[24%]");
-            }
-            else{
-              openIcon.classList.remove("w-[24%]");
-              openIcon.classList.add("w-0");
-            }
-          }*/
-    
-    
-    
-          function toggleSearch() {
-          let searchBar = document.getElementById("searchBar");
-          if (searchBar.classList.contains("hidden")) {
-            searchBar.classList.remove("hidden");
-            searchBar.classList.add("block");
-          } else {
-            searchBar.classList.remove("block");
-            searchBar.classList.add("hidden");
-          }
-        }
-    
-        </script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script src="ModificaLibro.js"></script>
-</body>
-</html>
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
