@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style type="text/tailwindcss">
     @layer utilities {
@@ -11,16 +12,36 @@
       }
     }
   </style>
+  <style>
+    .fade-in {
+      transition: opacity 3s ease-in-out;
+      opacity: 0;
+    }
+    .fade-out {
+      transition: opacity 3s ease-in-out;
+      opacity: 1;
+    }
+    .visible {
+      opacity: 1;
+    }
+    .hidden {
+      opacity: 0;
+    }
+  </style>
  
 </head>
 <body class="bg-cyan-900">
  
   <div class="flex">
     <!--sidebar-->
-      <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
-        <ion-icon name="menu-outline" onclick="apriCiccio()"></ion-icon>
+      <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer z-20">
+        <!--<ion-icon name="menu-outline" onclick="apriCiccio()"></ion-icon>-->
+        <span class="material-symbols-outlined text-white text-4xl cursor-pointer" onclick="apriCiccio()">
+          menu
+          </span>
+         
       </div>
-      <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[30px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openNav">
+      <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[30px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap 10 z-20" id="openNav">
         <ul>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="Libri.html">Libri</a></li>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="AggiungiLibro.html">Aggiungi Libro</a></li>
@@ -30,44 +51,53 @@
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="AggiungiAutore.html">Aggiungi Autore</a></li>
           <li class="hover:textShadow duration-500 hover:translate-y-[-5px]"><a href="#">Case Editrici</a></li>
         </ul>
-        <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer">
-          <ion-icon name="menu-outline"onclick="chiudiCiccio()"></ion-icon>
+        <div class="fixed top-[20px] left-[100px] text-[40px] cursor-pointer z-20">
+          <!--<ion-icon name="menu-outline"onclick="chiudiCiccio()"></ion-icon>-->
+          <span class="material-symbols-outlined text-white text-4xl cursor-pointer" onclick="chiudiCiccio()">
+            menu
+            </span>
         </div>
       </div>
 
       
     
-        <div class="fixed top-[10px] left-[700px] text-[40px] cursor-pointer w-20 h-20">
+        <div class="fixed top-[10px] left-[700px] text-[40px] cursor-pointer w-20 h-20 z-20">
           <a href="Homepage.html"><img src="https://images.vexels.com/content/229082/preview/book-circles-logo-82dff4.png" alt="Logo"></a>
         </div>
 
-      <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
-        <ion-icon name="person-outline"></ion-icon>
+      <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer z-20">
+        <!--<ion-icon name="person-outline"></ion-icon>-->
+        <span class="material-symbols-outlined text-white text-4xl cursor-pointer">
+          person
+          </span>
       </div>
 
       <div class="flex">
         <!--altra sidebar-->
-        <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
-          <ion-icon name="person-outline" onclick="apriFranco()"></ion-icon>
+        <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer  z-20">
+          <!--<ion-icon name="person-outline" onclick="apriFranco()"></ion-icon>-->
         </div>
         <div class="fixed  bg-[#008599]/50 w-0 h-[100vh] text-white flex justify-center items-center text-[40px] tracking-[1px] origin-left duration-500 overflow-hidden whitespace-nowrap" id="openIcon">
           
-        <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer">
-            <ion-icon name="person-outline"onclick="chiudiFranco()"></ion-icon>
+        <div class="fixed top-[20px] right-[100px] text-[40px] cursor-pointer  z-20">
+            <!--<ion-icon name="person-outline"onclick="chiudiFranco()"></ion-icon>-->
           </div>
         </div>
       </div>
-
-      <div class="fixed top-[20px] right-[170px] text-[40px] cursor-pointer" onclick="toggleSearch()">
-        <ion-icon name="search-outline"></ion-icon>
+      <!--searchbar-->
+      <div class="fixed top-[20px] right-[170px] text-[40px] cursor-pointer z-20" onclick="toggleSearch()">
+        <!--<ion-icon name="search-outline"></ion-icon>-->
+        <span class="material-symbols-outlined text-white text-4xl cursor-pointer">
+          search
+          </span>
       </div>
 
-      <div id="searchBar" class="fixed top-[20px] right-[230px] hidden">
+      <div id="searchBar" class="fixed top-[20px] right-[230px] hidden z-20">
         <!--<input type="text" placeholder="Cerca..." class="p-2 text-black rounded-lg">-->
         <form action="#" method="GET" class="hidden lg:block lg:pl-2">
           <label for="topbar-search" class="sr-only">Search</label>
           <div class="relative mt-1 lg:w-96">
-            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none z-20">
                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="none" viewBox="0 0 20 20"> <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/> </svg>
             </div>
             <input type="text" name="email" id="topbar-search" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-9 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search">
@@ -75,23 +105,42 @@
         </form>
       </div>
 
-      <div class="flex-1 p-4">
+      <div class="flex-1 ">
+        <video class="w-full h-screen object-cover inset-0 z-0 " autoplay muted>
+          <source src="1a1b0e08-4e8b-4ea5-a284-b46cf073b7cc.MP4" type="video/mp4">
+        </video>
       </div>
     
-      
+      <div id="delayedText" class=" fade-in text-yellow-400 text-7xl absolute inset-0 flex justify-center items-center z-10">
+        Benvenuti in Librarium
+      </div>
 
       
 
 
 
 
-      <!--footer-->
+     
+
 
 
 
 
 
     <script> 
+
+setTimeout(function() {
+      const delayedText = document.getElementById('delayedText');
+      delayedText.classList.remove('hidden');
+      delayedText.classList.add('visible');
+    }, 5000);
+
+    setTimeout(function () {
+      const delayedText = document.getElementById('delayedText');
+      delayedText.classList.remove('visible');
+      delayedText.classList.add('fade-out');
+    }, 10000);
+
       let openNav = document.getElementById("openNav");
         
       function apriCiccio(){
